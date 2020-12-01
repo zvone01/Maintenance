@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Kreiranje nove kontrolne liste</h1>
+<div mat-dialog-content>
+  <form class="example-container" [formGroup]="createTemplateForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="Name" placeholder="Template name">
+    </mat-form-field>
+
+    
+      <mat-label>Frequency</mat-label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype1" value="dnevno" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Dnevno
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype2" value="tjedno">
+          <label class="form-check-label" for="gridRadios2">
+            Mjesecno
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype3" value="godisnje">
+          <label class="form-check-label" for="gridRadios2">
+            Godisnje
+          </label>
+        </div>
+      </div>
+    
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Otkaži</button>
+  <button mat-button color="primary" (click)="onSubmitTemplate()" cdkFocusInitial>Kreiraj</button>
+</div>

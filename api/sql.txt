@@ -1,0 +1,32 @@
+SELECT ct.ID, ci.Name, cti.Item_ID as Item_ID, cl.ID as Cheklist_ID, ct.Machine_ID, ct.Frequency, cl.Date_Time FROM `checklist_templates` ct
+Left Join `checklist_templates_items` cti on cti.List_ID = ct.ID 
+left join `checkitems` ci on ci.ID = cti.Item_ID
+Left join `checklist` cl on cl.Template_ID = ct.ID AND cl.Machine_ID = ct.Machine_ID AND cl.Item_ID = cti.Item_ID 
+AND ( ( ct.Frequency = 1 AND DATE(Date_Time) = DATE(NOW()) ) /*danas*/ 
+OR ( ct.Frequency = 2 AND YEARWEEK(`Date_Time`, 1) = YEARWEEK(CURDATE(), 1)) /*ovaj tjedan*/ 
+OR ( ct.Frequency = 3 AND MONTH(`Date_Time`) = MONTH(CURDATE()) ) /*Ovaj misec*/ ) 
+WHERE ct.ID = 14
+
+
+SELECT *,   case 
+    when Frequency = '1' 
+    then curdate()
+    when Frequency = '2' 
+    then subdate(curdate(), (day(curdate())-1))
+    when Frequency = '3' 
+    then MAKEDATE(year(now()),1)
+    else null 
+  end 
+  AS StartDate,
+   case 
+    when Frequency = '1' 
+    then curdate()
+    when Frequency = '2' 
+    then LAST_DAY(curdate())
+    when Frequency = '3' 
+    then MAKEDATE(year(now()),1)
+    else null 
+  end 
+  AS EndDate
+  
+    FROM checklist_templates Where `Machine_ID`= 24

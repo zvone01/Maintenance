@@ -1,0 +1,30 @@
+
+      <button (click)="navigateBack()" mat-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="menu-font">{{checklistTemplate.Name}}</div>
+ 
+<hr>
+<div class="row">
+
+  <button color="primary" class="float-right" mat-raised-button (click)="save(ck.selectedOptions.selected)">Spremi</button>
+  <button mat-raised-button (click)="ck.selectAll()">select all</button>
+  <button mat-raised-button (click)="ck.deselectAll()">deselect all</button>
+  <mat-selection-list #ck>
+    <mat-list-option *ngFor="let check of checks"  [value] ="check.ID">
+      {{check.Name}}
+    </mat-list-option>
+  </mat-selection-list>
+  
+</div>
+<div class="row">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+<p>List of checked items: </p>
+    <mat-list  *ngFor="let check of checksDone">
+        <mat-list-item> {{check.Name}} </mat-list-item>
+        <mat-list-item> {{check.Date}} </mat-list-item>
+       </mat-list>
+</mat-toolbar-row>
+</mat-toolbar>
+</div>

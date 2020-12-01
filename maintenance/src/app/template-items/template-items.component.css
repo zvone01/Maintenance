@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+.card-color {
+    background: aliceblue;
+  }
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }

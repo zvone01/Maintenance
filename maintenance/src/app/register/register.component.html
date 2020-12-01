@@ -1,0 +1,65 @@
+<h1>Register new user</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+
+        <label for="description">Name</label>
+        <input [(ngModel)]="Name" (ngModelChange)="NameChange($event)" type="text" class="form-control" formControlName="name" required placeholder="Name">
+
+    </div>
+    <div class="form-group">
+
+        <label for="description">Surname</label>
+        <input [(ngModel)]="Surname" (ngModelChange)="SurnameChange($event)" type="text" class="form-control" formControlName="surname" required placeholder="Surname">
+
+    </div>
+
+    <div class="form-group">
+
+            <label for="description">Username</label>
+            <input [(ngModel)]="Username" type="text" class="form-control" formControlName="username" required placeholder="Name+Surname" disabled>
+    
+        </div>
+
+    <div class="form-group">
+
+        <label for="description">Password</label>
+        <input type="password" class="form-control" formControlName="password" required>
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="description">Email</label>
+
+        <input type="text" class="form-control" formControlName="email">
+    </div>
+
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype1" value="user" checked>
+            <label class="form-check-label" for="gridRadios1">
+              User
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype2" value="admin">
+            <label class="form-check-label" for="gridRadios2">
+              Admin
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="onItemChange($event)" type="radio" name="usertype" id="usertype3" value="disabled">
+            <label class="form-check-label" for="gridRadios2">
+              Disabled
+            </label>
+          </div>
+        </div>
+      </div>
+      
+
+    <button mat-button type="submit" class="btn btn-success">Submit</button>
+
+</form>

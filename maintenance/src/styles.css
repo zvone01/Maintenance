@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+/* Imports functions, variables, and mixins that are needed by other Bootstrap files */
+@import "_variables.scss";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "_reset.scss";
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.sidebar {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  }

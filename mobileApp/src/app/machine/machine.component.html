@@ -1,0 +1,44 @@
+<div class="row">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button (click)="navigateMachinesV()" mat-button>
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="menu-font">{{machine.Name}}</div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+
+<div class="row">
+  <div class="col">
+    <mat-card class="card-color">
+      <mat-card-header>
+        <mat-card-title>
+          Kontrolne liste
+
+        </mat-card-title>
+        <mat-card-subtitle>neki podnaslov</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <mat-action-list *ngFor="let template of templates">
+          <mat-card>
+            <button mat-list-item (click)="navigateTemplate(template.Id)"> {{template.Name}} </button>
+            <p>{{template.StartDate}} ------- {{template.EndDate}} </p>
+            <p>0/3</p>
+          </mat-card>
+        </mat-action-list>
+
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+        <button mat-button>SUBSCRIBE</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+</div>

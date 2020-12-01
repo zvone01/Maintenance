@@ -1,0 +1,19 @@
+<div class="row">
+  <nav class="col-md-2 d-none d-md-block bg-white sidebar">
+      <mat-action-list *ngFor="let machine of machines">
+          <button mat-list-item (click)="navigateMachine(machine.ID)"> {{machine.Name}} </button>
+      </mat-action-list>
+    </nav>
+
+  <div class=" col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+    <mat-card>
+      <mat-action-list *ngFor="let machine of machines">
+        <mat-card>
+          <button mat-list-item (click)="navigateMachine(machine.ID)"> {{machine.Name}} </button>
+        </mat-card>
+      </mat-action-list>
+    </mat-card>
+  </div>
+</div>
+
+
